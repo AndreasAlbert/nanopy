@@ -19,7 +19,7 @@ def dummy_file_to_dataset(file):
     return "dummy"
 
 
-class AnalyzerBase():
+class AnalyzerBase(object):
     def __init__(self,files):
         
         ### Internal 
@@ -65,14 +65,14 @@ class AnalyzerBase():
         :rtype: bool
         """        
         if new_dataset in self._outfile.GetListOfKeys():
-            logging.debug("Found existing folder for dataset '{}'.".format(new_data))
+            logging.debug("Found existing folder for dataset '{}'.".format(new_dataset))
             logging.debug("Loading histograms from file.")
             directory = self._outfile.Get(new_dataset)
             histos = {}
             for key in directory.GetListOfKeys():
                 histos[key.GetName()] = directory.Get(key.GetName())
         else:
-            logging.debug("No folder found for dataset '{}'.".format(new_data))
+            logging.debug("No folder found for dataset '{}'.".format(new_dataset))
 
             directory = self._outfile.mkdir(new_dataset)
             directory.cd()

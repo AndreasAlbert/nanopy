@@ -1,6 +1,6 @@
 import ROOT as r
 from nanopy.base import AnalyzerBase
-from nanopy.functions import calculate_jet_ht
+from nanopy.jitfunctions import calculate_jet_ht
 import uproot as ur
 from root_numpy import fill_hist
 import sys
