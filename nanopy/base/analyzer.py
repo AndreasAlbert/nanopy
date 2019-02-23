@@ -84,7 +84,7 @@ class AnalyzerBase():
         self._dataset = new_dataset
 
     
-    def write_histos(self):
+    def _write_histos(self):
         """Write histograms to file"""
         logging.debug("Writing histograms to file.")
         if self._curdir:
@@ -100,7 +100,7 @@ class AnalyzerBase():
         1. Writing histograms to file
         2. Closing the file
         """
-        self.write_histos()
+        self._write_histos()
         self._outfile.Close()
 
     def _file_loop(self):
