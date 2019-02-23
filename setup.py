@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'nanopy',
-    version = '0.0.1',
+    version = '0.0.2',
     url = 'https://github.com/AndreasAlbert/nanopy.git',
     author = 'Andreas Albert',
     author_email = 'andreas.albert@cern.ch',

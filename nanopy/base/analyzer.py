@@ -4,7 +4,7 @@ import logging
 
 import ROOT as r
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 def dummy_file_to_dataset(file):
     """Find dataset name associated to file
