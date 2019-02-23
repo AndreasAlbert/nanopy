@@ -5,7 +5,22 @@ import uproot as ur
 from root_numpy import fill_hist
 import sys
 
+
+def file_to_dataset(file):
+    """Example function to derive datasets from file names"""
+    if "ZJet" in file:
+        return "Z"
+    elif "WJet" in file:
+        return "W"
+    elif "HToInvisible" in file:
+        return "Hinv"
+
+
 class JetAnalyzer(AnalyzerBase):
+    def __init__(self, files):
+        super(JetAnalyzer, self).__init__(files)
+        self._file_to_dataset = file_to_dataset
+
     def _create_histograms(self):
         histos = {}
         histos["ptj"] = r.TH1D("ptj", "ptj", 200, 0, 2000)
@@ -46,8 +61,7 @@ def main():
         if p.endswith(".root"):
             files.append(p)
 
-    logging.info("Found {N} files.".format(N=len(files)))
-    analyzer = Analyzer(files)
+    analyzer = JetAnalyzer(files)
     analyzer.run()
 
 if __name__ == "__main__":
