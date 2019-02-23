@@ -1,10 +1,10 @@
 #!/usr/bin/env python
+
 import logging
 
 import ROOT as r
 
-__version__ = "1.0.0"
-
+__version__ = "0.0.1"
 
 def dummy_file_to_dataset(file):
     """Find dataset name associated to file
